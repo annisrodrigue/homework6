@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript Video Controls</title>
+	<script src="js/video.js"></script>
+	<style>
+	video{
+		width: 90%;
+		border: 1px solid black;
+	}
+	.grayscale{
+		filter: grayscale(100%);
+	}
+
+	button{
+		margin-bottom: 5px;
+	}
+	/*Use CSS before property to display the image before the text in the buttons*/
+	
+	</style>
+</head>
+<body onload = "getVid()"> 
+<main>
+	<h1>JavaScript Video Controls</h1>
+	<button onclick="playVid()" type="button" class = "play">Play Video</button>
+	<button onclick="pauseVid()" type="button" class = "pause">Pause Video</button><br>
+	<button onclick="decreaseSpeed()" type="button">Slow Down</button>
+	<button onclick="increaseSpeed()" type="button">Speed Up</button><br>
+	<button onclick="skipAhead()" type="button">Skip Ahead</button><br>
+
+	
+
+	<figure>
+		<video id="myVideo">
+		<source src="https://download.blender.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_stereo.ogg" />
+		  Your browser does not support HTML5 video.
+		  <!-- I do not have captions - it was causing an error that I could not fix. -->
+		</video>
+	<figcaption>[Dramatic music throughout but no speaking]</figcaption>
+	</figure>
+
+	<br/>
+	<button id="mute" onclick="mute()" type="button">Mute</button><br>
+
+	<label for="volumeSlider">Volume</label>: 0 <input type="range" id="volumeSlider" oninput="changeVolume()" min="0" max="100" value="100" step="10"> 100%<br>
+	<div>Volume is: <span id = "volume"> </span><br><br></div>
+
+	<button onclick="gray()" type="button">Old School</button>
+	<button onclick="color()" type="button">Original</button>
+
+	<p>Video courtesy of <a href="https://www.bigbuckbunny.org/" target="_blank">Big Buck Bunny</a>.</p>
+</main>
+</body> 
+</html>
